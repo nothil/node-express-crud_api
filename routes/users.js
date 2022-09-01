@@ -66,18 +66,15 @@ router.delete("/:id", (req, res) => {
         );
       }
     });
-
-    // res.status(201).json(user);
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
-  //   res.send(`User with the id ${id} deleted from the database`);
 });
 
 router.patch("/:id", (req, res) => {
   const post = req.params.id;
   console.log(req.body);
-  //   const user = new PostMessage(post);{id: , firstName: "Name"}
+
   try {
     PostMessage.findByIdAndUpdate(
       { _id: req.params },
