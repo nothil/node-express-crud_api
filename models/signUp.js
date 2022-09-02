@@ -1,11 +1,18 @@
 import mongoose from "mongoose";
 
-const postSchema = mongoose.Schema({
-  firstName: String,
-  lastName: String,
-  age: Number,
+const SignUpSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: [true, "Please provide an Email!"],
+    unique: [true, "Email Exist"],
+  },
+
+  password: {
+    type: String,
+    required: [true, "Please provide a password!"],
+    unique: false,
+  },
 });
+const SignUp = mongoose.model("SignUp", SignUpSchema);
 
-const PostMessage = mongoose.model("signUp", postSchema);
-
-export default PostMessage;
+export default SignUp;
